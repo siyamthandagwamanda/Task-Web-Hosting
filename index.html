@@ -4,25 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
     <title>
         Portfolio
     </title>
 </head>
 
 <body>
+  
+    <header id="main-header">
 
-    <header>
-
-        <nav>
+        <nav id="site-nav">
 
             <div class="logo">
-                <img src="Images/Mylogo.png" alt="logo" width="120">
+                <img src="Images/Mylogo.png" alt="logo" width="120" class="logo-image">
             </div>
 
-            <a href="#home">Home</a>
-            <a href="#about">about</a>
-            <a href="#interest">interest</a>
-            <a href="#contact">contact</a>
+            <a href="#" class="nav-home-btn">Home</a>
+            <a href="#" class="nav-about-btn">about</a>
+            <a href="#" class="nav-interest-btn">interest</a>
+            <a href="#" class="nav-contact-btn">contact</a>
 
         </nav>
 
@@ -33,8 +35,8 @@
     <main>
         <section id="home">
 
-            <h1>This is My Portfolio</h1>
-            <p>
+            <h1 class="home-title">This is My Portfolio</h1>
+            <p class="home-text">
                 This is an advertisement of my work, project, and skills in web development
             </p>
 
@@ -44,8 +46,8 @@
 
         <section id="image">
 
-            <h2>My Image</h2>
-            <img src="Images/MyImage.jpg" alt="profile picture" width="150">
+            <h4 class="image-title">My Image</h4>
+            <img class="profile-image" src="Images/MyImage.jpg" alt="profile picture" width="150">
 
         </section>
 
@@ -53,8 +55,8 @@
 
         <section id="about">
 
-            <h2>Get To Know Me</h2>
-            <p>
+            <h2 class="about-title">Get To Know Me</h2>
+            <p class="about-text">
                 My name is Siyamthanda Gwamanda
                 I am still aspiring to become a developer. Despite environmental limitations,
                 I remain passionate, enthusiastic, and determined to grow into a successful 
@@ -71,15 +73,15 @@
 
         <section id="interest">
 
-            <h2>Interested in</h2>
+            <h2 class="interest-title">Interested in</h2>
             <ul>
-                <li>
+                <li class="fir-interest">
                    <strong>Creative Tech Identity:</strong>
                    I am fascinated by how technology allows me to become a creator, 
                    not just someone who writes code.
                 </li>
 
-                 <li>
+                 <li class="sec-interest">
                    <strong>Creative Technology:</strong>
                    I enjoy building and creating through technology, turning ideas into
                    real digital experiences rather than simply writing code.
@@ -92,8 +94,8 @@
         
         <section id="video">
 
-            <h2>The Video </h2>
-            <video width="160" controls>
+            <h2 class="video-text">The Video </h2>
+            <video class="video-play" width="160" controls>
                 <source src="Video/MyVideo.mp4" type="video/mp4">
             </video>
 
@@ -103,9 +105,9 @@
 
         <section id="contact">
 
-            <h2>Reach Me At</h2>
+            <h2 class="contact-title">Reach Me At</h2>
             <p><strong>You can reach me through</strong></p>
-            <ul>
+            <ul class="social-link">
                 <li>Email: gwamandasiyamthanda13@gmail.com</li>
                 <li>Phone: 0601839398</li>
                  <li>
@@ -135,7 +137,7 @@
 
     <hr>
 
-    <footer>
+    <footer class="footer-text">
         <p> © 2026 Siyamthanda Gwamanda.
             All Rights Reserved.
         </p>

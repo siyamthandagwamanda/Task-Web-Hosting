@@ -1,0 +1,175 @@
+@import url('https://fonts.googleleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');  body{font-family: 'Poppins', sans-serif;}
+
+
+/*==========================================================
+1. Global Styles (HTML Tags)
+============================================================*/
+
+body{
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/*===============================================================
+2. Header & Navigation (IDs & Classes)
+=================================================================*/
+
+#main-header{
+    background-color: #ffffff;
+    padding: 10px 0;
+}
+
+#site-nav{
+    display: flex;
+    align-items: center;
+    gap: 20px 
+}
+
+.logo{
+    display: inline-block;
+}
+
+.logo-image{
+    border-radius: 5px;
+}
+
+.nav-home-btn{
+    background-color: #007bff;
+     color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.nav-about-btn{
+    background-color: #253b53;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+
+.nav-contact-btn{
+    background-color: #ac1ae6;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+
+
+.nav-interest-btn{
+    background-color: #007bff;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+/* #site-nav{
+     background-color: #007bff;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+ */
+
+
+
+/*===============================================================================
+3. Sections (Using your IDs)
+================================================================================*/
+
+#home{
+    padding: 40px 0;
+    text-align: center;
+}
+
+#image{
+    text-align: center;
+}
+
+#about{
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#interest{
+    padding: 20px 0;
+}
+
+#video{
+    text-align: center;
+    margin: 20px 0;
+}
+
+#contact {
+    background-color: #eef2f7;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#map{
+    text-align: center;
+    margin-top: 20px;
+}
+
+/*=======================================================================
+4. Text & Componenr classes
+========================================================================*/
+.home-title {
+    font-size: 2.5rem;
+    color: #111;
+}
+
+.image-title, .about-title, .interest-title{
+    color: #007bff;
+}
+
+.home-text, .about-text {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.profile-image{
+    border-radius: 50%;
+    border: 3px solid #007bff;
+}
+
+.fir-interest, .sec-interest {
+    background: #fff;
+    margin: 10px 0;
+    padding: 15px;
+    list-style-type: none;
+    border-left: 5px solid #007bff;
+}
+
+.video-play{
+    border: 2px solid #ddd;
+    border-radius: 4px;
+}
+
+.social-link {
+    list-style: none;
+    padding: 0;
+}
+
+.social-link li {
+    margin: 10px 0;
+}
+
+.footer-text {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #777;
+    padding: 20px 0;
+}
