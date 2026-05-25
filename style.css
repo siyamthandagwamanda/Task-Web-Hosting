@@ -47,7 +47,7 @@ body{
     border-radius: 8px;
 }
 
-/* Navigation Links */
+
 
 .nav-links{
     display: flex;
@@ -64,7 +64,7 @@ body{
     font-weight: 500;
 }
 
-/* Different button colors */
+
 
 .nav-home-btn{
     background-color: #007bff;
@@ -82,7 +82,7 @@ body{
     background-color: #ac1ae6;
 }
 
-/* Hover Effects */
+
 
 .nav-links a:hover{
     transform: translateY(-3px);
@@ -227,7 +227,7 @@ iframe{
 }
 
 
-/* Tablets */
+
 
 @media (max-width: 768px){
 
@@ -250,7 +250,7 @@ iframe{
     }
 }
 
-/* Mobile */
+
 
 @media (max-width: 480px){
 
