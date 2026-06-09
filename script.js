@@ -1,27 +1,24 @@
 const menuButton = document.getElementById("menu-button");
 const navLinks = document.getElementById("nav-links");
+const themeToggle = document.getElementById("theme-toggle");
 const scrollTopButton = document.getElementById("scroll-top-btn");
 const contactForm = document.getElementById("contact-form");
-const formMessage = document.getElementById("form-message");
 
 function toggleMenu() {
 navLinks.classList.toggle("show");
 }
 
 function setupMenuButton() {
+if (menuButton) {
 menuButton.addEventListener("click", toggleMenu);
 }
-
-function smoothScrollToSection(event) {
-
-
-const link = event.target.closest("a");
-
-if (!link) {
-    return;
 }
 
-const href = link.getAttribute("href");
+function smoothScroll(event) {
+
+
+const href =
+    event.target.getAttribute("href");
 
 if (!href.startsWith("#")) {
     return;
@@ -29,37 +26,34 @@ if (!href.startsWith("#")) {
 
 event.preventDefault();
 
-const targetSection =
+const target =
     document.querySelector(href);
 
-if (targetSection) {
+if (target) {
 
-    targetSection.scrollIntoView({
+    target.scrollIntoView({
         behavior: "smooth"
     });
 
 }
 
-if (window.innerWidth <= 768) {
-    navLinks.classList.remove("show");
-}
+navLinks.classList.remove("show");
 
 
 }
 
 function setupSmoothScrolling() {
 
-
-const navigationLinks =
+const links =
     document.querySelectorAll(
-        '.nav-links a'
+        ".nav-links a"
     );
 
-navigationLinks.forEach(function(link) {
+links.forEach(function(link) {
 
     link.addEventListener(
         "click",
-        smoothScrollToSection
+        smoothScroll
     );
 
 });
@@ -67,47 +61,42 @@ navigationLinks.forEach(function(link) {
 
 }
 
-function highlightActiveLink() {
-
+function highlightNavigation() {
 
 const sections =
     document.querySelectorAll("section");
 
-const navigationLinks =
+const links =
     document.querySelectorAll(
         ".nav-links a"
     );
 
-let currentSection = "";
+let current = "";
 
 sections.forEach(function(section) {
 
     const sectionTop =
         section.offsetTop;
 
-    const sectionHeight =
-        section.clientHeight;
-
     if (
-        pageYOffset >=
+        window.scrollY >=
         sectionTop - 200
     ) {
-        currentSection =
+
+        current =
             section.getAttribute("id");
+
     }
 
 });
 
-navigationLinks.forEach(function(link) {
+links.forEach(function(link) {
 
     link.classList.remove("active");
 
-    const href =
-        link.getAttribute("href");
-
     if (
-        href ===
-        "#" + currentSection
+        link.getAttribute("href")
+        === "#" + current
     ) {
 
         link.classList.add("active");
@@ -116,6 +105,7 @@ navigationLinks.forEach(function(link) {
 
 });
 
+
 }
 
 function setupActiveNavigation() {
@@ -123,7 +113,7 @@ function setupActiveNavigation() {
 
 window.addEventListener(
     "scroll",
-    highlightActiveLink
+    highlightNavigation
 );
 
 
@@ -132,15 +122,16 @@ window.addEventListener(
 function validateEmail(email) {
 
 
-const emailPattern =
+const pattern =
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-return emailPattern.test(email);
+return pattern.test(email);
 
 
 }
 
 function validateForm(event) {
+
 
 event.preventDefault();
 
@@ -162,6 +153,11 @@ const message =
         .value
         .trim();
 
+const formMessage =
+    document.getElementById(
+        "form-message"
+    );
+
 if (
     name === "" ||
     email === "" ||
@@ -180,18 +176,7 @@ if (
 if (!validateEmail(email)) {
 
     formMessage.textContent =
-        "Please enter a valid email.";
-
-    formMessage.style.color =
-        "red";
-
-    return;
-}
-
-if (message.length < 10) {
-
-    formMessage.textContent =
-        "Message must contain at least 10 characters.";
+        "Enter a valid email.";
 
     formMessage.style.color =
         "red";
@@ -200,27 +185,33 @@ if (message.length < 10) {
 }
 
 formMessage.textContent =
-    "Message submitted successfully!";
+    "Message sent successfully!";
 
 formMessage.style.color =
     "green";
 
 contactForm.reset();
 
-}
-
-function setupContactForm() {
-
-
-contactForm.addEventListener(
-    "submit",
-    validateForm
-);
-
 
 }
 
-function showScrollTopButton() {
+function setupFormValidation() {
+
+
+if (contactForm) {
+
+    contactForm.addEventListener(
+        "submit",
+        validateForm
+    );
+
+}
+
+
+}
+
+function showBackToTopButton() {
+
 
 if (window.scrollY > 300) {
 
@@ -253,13 +244,17 @@ function setupScrollTopButton() {
 
 window.addEventListener(
     "scroll",
-    showScrollTopButton
+    showBackToTopButton
 );
 
-scrollTopButton.addEventListener(
-    "click",
-    scrollToTop
-);
+if (scrollTopButton) {
+
+    scrollTopButton.addEventListener(
+        "click",
+        scrollToTop
+    );
+
+}
 
 
 }
@@ -267,28 +262,25 @@ scrollTopButton.addEventListener(
 function revealSections() {
 
 
-const revealElements =
+const sections =
     document.querySelectorAll(
-        ".section"
+        ".reveal"
     );
 
-revealElements.forEach(function(element) {
+sections.forEach(function(section) {
 
-    const windowHeight =
+    const top =
+        section.getBoundingClientRect()
+        .top;
+
+    const screenHeight =
         window.innerHeight;
 
-    const elementTop =
-        element.getBoundingClientRect().top;
+    if (top < screenHeight - 100) {
 
-    const revealPoint = 100;
-
-    if (
-        elementTop <
-        windowHeight - revealPoint
-    ) {
-
-        element.classList.add("active");
-        element.classList.add("reveal");
+        section.classList.add(
+            "active"
+        );
 
     }
 
@@ -299,18 +291,6 @@ revealElements.forEach(function(element) {
 
 function setupRevealAnimation() {
 
-const sections =
-    document.querySelectorAll(
-        ".section"
-    );
-
-sections.forEach(function(section) {
-
-    section.classList.add(
-        "reveal"
-    );
-
-});
 
 window.addEventListener(
     "scroll",
@@ -322,55 +302,120 @@ revealSections();
 
 }
 
-function setupButtonHoverEffects() {
+function saveTheme(theme) {
 
 
-const buttons =
-    document.querySelectorAll(
-        ".btn"
-    );
-
-buttons.forEach(function(button) {
-
-    button.addEventListener(
-        "mouseenter",
-        function() {
-
-            button.style.transform =
-                "translateY(-4px)";
-
-        }
-    );
-
-    button.addEventListener(
-        "mouseleave",
-        function() {
-
-            button.style.transform =
-                "translateY(0)";
-
-        }
-    );
-
-});
+localStorage.setItem(
+    "portfolio-theme",
+    theme
+);
 
 
 }
 
-function displayCurrentYear() {
+function enableDarkMode() {
 
-const footer =
+
+document.body.classList.add(
+    "dark-mode"
+);
+
+if (themeToggle) {
+    themeToggle.textContent = "☀️";
+}
+
+saveTheme("dark");
+
+
+}
+
+function enableLightMode() {
+
+document.body.classList.remove(
+    "dark-mode"
+);
+
+if (themeToggle) {
+    themeToggle.textContent = "🌙";
+}
+
+saveTheme("light");
+
+
+}
+
+function toggleTheme() {
+
+
+if (
+    document.body.classList.contains(
+        "dark-mode"
+    )
+) {
+
+    enableLightMode();
+
+} else {
+
+    enableDarkMode();
+
+}
+
+
+}
+
+function loadSavedTheme() {
+
+
+const savedTheme =
+    localStorage.getItem(
+        "portfolio-theme"
+    );
+
+if (savedTheme === "dark") {
+
+    enableDarkMode();
+
+} else {
+
+    enableLightMode();
+
+}
+
+
+}
+
+function setupThemeToggle() {
+
+
+if (themeToggle) {
+
+    themeToggle.addEventListener(
+        "click",
+        toggleTheme
+    );
+
+}
+
+
+}
+
+function updateFooterYear() {
+
+
+const footerText =
     document.querySelector(
         ".footer p"
     );
 
-const currentYear =
-    new Date().getFullYear();
+if (footerText) {
 
-footer.innerHTML =
-    "&copy; " +
-    currentYear +
-    " Siyamthanda Gwamanda. All Rights Reserved.";
+    footerText.innerHTML =
+        "&copy; " +
+        new Date().getFullYear() +
+        " Siyamthanda Gwamanda. All Rights Reserved.";
+
+}
 
 
 }
@@ -384,15 +429,17 @@ setupSmoothScrolling();
 
 setupActiveNavigation();
 
-setupContactForm();
+setupFormValidation();
 
 setupScrollTopButton();
 
 setupRevealAnimation();
 
-setupButtonHoverEffects();
+setupThemeToggle();
 
-displayCurrentYear();
+loadSavedTheme();
+
+updateFooterYear();
 
 
 }
