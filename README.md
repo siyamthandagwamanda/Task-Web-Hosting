@@ -1,77 +1,9 @@
-# My Portfolio Website
+> This is my personal portfolio website built with HTML, CSS, and JavaScript to demonstrate my understanding of front-end development fundamentals.
+ 
+> I used semantic HTML to structure sections like the hero, about, skills, projects, developer journey, and contact areas. For styling, I used CSS with Flexbox, Grid, animations, hover effects, dark mode styling, and media queries to ensure the website is responsive across different devices.
 
-## Overview
+> With JavaScript, I implemented interactive features such as a mobile navigation menu, smooth scrolling, active navigation highlighting, a typing animation, a . > random developer wisdom generator, form validation using regular expressions, scroll reveal animations, a scroll-to-top button, and dark mode with localStorage to remember the user's preference. 
 
-This is my personal portfolio website created using HTML.
+> I also organized my JavaScript into smaller functions to keep the code maintainable and easier to scale. The developer journey section represents my growth mindset and my goal of becoming a full-stack developer. 
 
-The project was developed as part of the CodeTribe Web Development Bootcamp Task 1.
-
-The website contains:
-
-- Home Page
-- About Me Section
-- Projects Section
-- Contact Section
-- Embedded Video
-- Embedded Google Map
-- External Links
-
----
-
-## Technologies Used
-
-- HTML5
-
----
-
-## Features
-
-- Navigation menu
-- Profile image
-- About me section
-- Projects showcase
-- Contact information
-- Embedded intro video
-- Embedded Google map
-- External website links
-
----
-
-## Folder Structure
-
-portfolio-project/
-│
-├── index.html
-├── about.html
-├── contact.html
-│
-├── images/
-│ ├── MyImage.jpg
-│ └── Mylogo.png
-│
-├── videos/
-│ └── intro.mp4
-│
-└── css/
-└── style.css
-
----
-
-## Author
-
-Siyamthanda Gwamanda
-
----
-
-## GitHub Repository
-
-Add your repository link here:
-
-https://github.com/siyamthandagwamanda
-
-
----
-
-## Submission
-
-This project was pushed to GitHub as required for submission.
+> I used Git for version control and deployed the project using GitHub Pages. The biggest lesson I learned was how to combine multiple features into a complete, user-friendly application while keeping the code clean and organized, and my next step would be to connect features like the contact form to a real backend and continue expanding my full-stack skills.
